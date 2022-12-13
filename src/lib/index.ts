@@ -4,8 +4,8 @@ import {
   utils,
   web3,
   IdlAccounts,
-  BN,
   AnchorProvider,
+  BN,
 } from '@project-serum/anchor'
 import { TOKEN_PROGRAM_ID } from '@project-serum/anchor/dist/cjs/utils/token'
 import { ComputeBudgetProgram, Transaction } from '@solana/web3.js'

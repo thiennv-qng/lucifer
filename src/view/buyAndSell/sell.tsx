@@ -113,6 +113,7 @@ const Sell = ({ poolAddress }: BuyProps) => {
                       color: '#000',
                       fontSize: 32,
                       textAlign: 'right',
+                      width: '100%',
                     }}
                     value={amount}
                     onChange={(e) => onChangeAmount(e || '')}

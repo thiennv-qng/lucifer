@@ -76,7 +76,7 @@ const Buy = ({ poolAddress }: BuyProps) => {
               bordered={false}
               style={{
                 borderRadius: '4px 4px 0 0',
-                background: 'rgb(20 20 20 / 40%)',
+                background: 'rgb(20 20 20 / 10%)',
                 boxShadow: 'unset',
               }}
             >
@@ -139,7 +139,7 @@ const Buy = ({ poolAddress }: BuyProps) => {
               bordered={false}
               style={{
                 borderRadius: '0 0 4px 4px',
-                background: 'rgb(20 20 20 / 40%)',
+                background: 'rgb(20 20 20 / 10%)',
                 boxShadow: 'unset',
               }}
             >
