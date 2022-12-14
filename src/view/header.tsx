@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import IonIcon from '@sentre/antd-ionicon'
 import { Avatar, Card, Col, Image, Menu, Row, Space, Typography } from 'antd'
 
-import logo from 'static/images/logo.svg'
+import logo from 'static/images/brand.svg'
 
 const Header = () => {
   const history = useHistory()
