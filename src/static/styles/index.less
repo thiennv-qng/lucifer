@@ -2,7 +2,7 @@
  * Available vars: https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
  */
 
-@import '~antd/dist/antd.dark.less';
+@import '~antd/dist/antd.less';
 @import './common/vars.less';
 
 // Colors
@@ -11,17 +11,17 @@
 @success-color: @SUCCESS;
 @warning-color: @WARNING;
 @error-color: @ERROR;
-@popover-background: @NEUTRAL100;
-@body-background: @NEUTRAL100;
-@component-background: @NEUTRAL100;
-@disabled-bg: @NEUTRAL90;
-@body-background: @NEUTRAL100;
+@popover-background: @NEUTRAL05;
+@body-background: #f5f5f5;
+@component-background: @NEUTRAL05;
+@disabled-bg: @NEUTRAL40;
+@body-background: @NEUTRAL05;
 
 // Typography
 @font-family: 'Nunito', sans-serif;
-@text-color: @NEUTRAL05;
+@text-color: @NEUTRAL95;
 @text-color-secondary: @NEUTRAL40;
-@heading-color: @NEUTRAL05;
+@heading-color: @NEUTRAL95;
 @disabled-color: @NEUTRAL40;
 @typography-title-margin-top: 0px;
 @typography-title-margin-bottom: 0px;
@@ -35,15 +35,15 @@
 
 // Card
 @card-radius: @border-radius-base * 3;
-@card-actions-background: @NEUTRAL100;
-@card-background: @NEUTRAL90;
+@card-actions-background: @NEUTRAL05;
+@card-background: @NEUTRAL05;
 @card-shadow: @DARK_SHADOW2;
 @card-padding-base: 16px;
 
 // Modal
-@modal-header-bg: @NEUTRAL90;
-@modal-content-bg: @NEUTRAL90;
-@modal-footer-bg: @NEUTRAL90;
+@modal-header-bg: @NEUTRAL05;
+@modal-content-bg: @NEUTRAL05;
+@modal-footer-bg: @NEUTRAL05;
 @modal-footer-padding-horizontal: 24px;
 @modal-header-padding: 16px 24px 8px 24px;
 
@@ -82,16 +82,25 @@
 @checkbox-border-radius: @border-radius-base - 4;
 
 //Table
-@table-bg: @TRANSPARENT;
+@table-bg: @white;
+@table-header-bg: @TRANSPARENT;
+@table-expanded-row-bg: #d9dee7;
+@table-border-color: #d9dee7;
 
 // Segmented
-@segmented-bg: #ceffe8;
-@segmented-hover-bg: #e7fff4;
+@segmented-bg: #e5e5e5;
+@segmented-hover-bg: #dbdada;
 @segmented-selected-bg: @white;
 @segmented-label-color: #262626;
 @segmented-label-hover-color: #262626;
 
+// Menu
+@menu-bg: transparent;
+
 // Patch
+body {
+  background: #e5e5e5 !important;
+}
 .@{ant-prefix}-layout {
   background: unset;
 }
@@ -107,11 +116,17 @@
 }
 
 .@{ant-prefix}-modal-gradient {
-  .sentre-modal-content {
+  .lucifer-modal-content {
     background-color: transparent;
   }
-  .sentre-modal-body {
+  .lucifer-modal-body {
     background: linear-gradient(180deg, #f5f1ff 0%, #ceffe8 100%);
     border-radius: 16px !important;
   }
+}
+.lucifer-menu-horizontal {
+  border: none !important;
+}
+.lucifer-input-number-input {
+  text-align: right;
 }

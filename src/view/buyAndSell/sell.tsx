@@ -76,7 +76,7 @@ const Sell = ({ poolAddress }: BuyProps) => {
               bordered={false}
               style={{
                 borderRadius: '4px 4px 0 0',
-                background: 'rgb(20 20 20 / 10%)',
+                background: 'rgb(20 20 20 / 5%)',
                 boxShadow: 'unset',
               }}
             >
@@ -108,6 +108,7 @@ const Sell = ({ poolAddress }: BuyProps) => {
                 </Col>
                 <Col span={20}>
                   <InputNumber
+                    controls={false}
                     bordered={false}
                     style={{
                       color: '#000',
@@ -142,7 +143,7 @@ const Sell = ({ poolAddress }: BuyProps) => {
               bordered={false}
               style={{
                 borderRadius: '0 0 4px 4px',
-                background: 'rgb(20 20 20 / 10%)',
+                background: 'rgb(20 20 20 / 5%)',
                 boxShadow: 'unset',
               }}
             >

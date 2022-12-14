@@ -345,7 +345,7 @@ class LucidProgram {
       baseMint,
     )
     console.log(tokenAccounts, ' tokenAccounts')
-
+    await this.mintStable(pool, stable_amount)
     const txId = await this.program.methods
       .buy(stable_amount, base_amount)
       .accounts({

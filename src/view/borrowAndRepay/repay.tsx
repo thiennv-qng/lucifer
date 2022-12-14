@@ -68,12 +68,18 @@ const Deposit = ({ poolAddress }: { poolAddress: string }) => {
       <Col span={12}>
         <CardValue
           label="DEBT"
+          style={{
+            background: 'rgb(20 20 20 / 5%)',
+          }}
           value={<span>{util.numeric(baseAmount).format('$0,0.[00]')}</span>}
         />
       </Col>
       <Col span={12}>
         <CardValue
           label="TOTAL LOCKED"
+          style={{
+            background: 'rgb(20 20 20 / 5%)',
+          }}
           value={
             <span>
               {util

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { util } from '@sentre/senhub'
 import { notifyError, notifySuccess } from '@sen-use/app'
 
-import { Button, Col, InputNumber, Row, Space, Typography } from 'antd'
+import { Button, Card, Col, InputNumber, Row, Space, Typography } from 'antd'
 
 import { useAccountBalanceByMintAddress } from 'shared/hooks/useAccountBalance'
 import { usePoolData } from 'hooks/pool/usePoolData'
@@ -49,35 +49,41 @@ const Borrow = ({ poolAddress }: { poolAddress: string }) => {
         </Row>
       </Col>
       <Col span={24}>
-        <Row align="middle">
-          <Col flex="auto">
-            <Button
-              type="primary"
-              onClick={() => setAmount(balance.toString())}
-            >
-              Max
-            </Button>
-          </Col>
-          <Col>
-            <Space>
-              <InputNumber
-                bordered={false}
-                onChange={(e) => setAmount(e || '')}
-                style={{
-                  color: '#000000',
-                  fontSize: 30,
-                  fontWeight: 700,
-                  width: 150,
-                  textAlign: 'right',
-                }}
-                value={amount}
-              />
-              <Typography.Title level={4} style={{ color: '#000000' }}>
-                LPT
-              </Typography.Title>
-            </Space>
-          </Col>
-        </Row>
+        <Card
+          bordered={false}
+          style={{ boxShadow: 'unset', background: 'rgb(20 20 20 / 5%)' }}
+        >
+          <Row align="middle">
+            <Col flex="auto">
+              <Button
+                type="primary"
+                onClick={() => setAmount(balance.toString())}
+              >
+                Max
+              </Button>
+            </Col>
+            <Col>
+              <Space>
+                <InputNumber
+                  controls={false}
+                  bordered={false}
+                  onChange={(e) => setAmount(e || '')}
+                  style={{
+                    color: '#000000',
+                    fontSize: 30,
+                    fontWeight: 700,
+                    width: '100%',
+                    textAlign: 'right',
+                  }}
+                  value={amount}
+                />
+                <Typography.Title level={4} style={{ color: '#000000' }}>
+                  LPT
+                </Typography.Title>
+              </Space>
+            </Col>
+          </Row>
+        </Card>
       </Col>
       <Col span={24}>
         <Typography.Title level={5} style={{ color: '#000000' }}>

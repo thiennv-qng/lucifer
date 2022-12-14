@@ -1,21 +1,16 @@
 import { useMemo } from 'react'
-import { rpc, useWalletAddress } from '@sentre/senhub'
-import LucidProgram, { getAnchorProvider, LUCID_ADDRESS } from 'lib'
+import { getAnchorProvider } from '@sentre/senhub'
+import LucidProgram, { LUCID_ADDRESS } from 'lib'
 
 export const useProvider = () => {
-  const walletAddress = useWalletAddress()
-
-  const provider = useMemo(
-    () => getAnchorProvider(rpc, walletAddress, window.sentre.solana),
-    [walletAddress],
-  )
+  const provider = useMemo(() => getAnchorProvider()!, [])
   return provider
 }
 export const useLucid = (): LucidProgram => {
   const provider = useProvider()
 
   const lucidProgram = useMemo(
-    () => new LucidProgram(provider, LUCID_ADDRESS),
+    () => new LucidProgram(provider as any, LUCID_ADDRESS),
     [provider],
   )
   return lucidProgram

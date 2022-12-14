@@ -4,7 +4,16 @@ import { BN } from 'bn.js'
 import { useGetMintDecimals, util } from '@sentre/senhub'
 import { notifyError, notifySuccess, MintSelection } from '@sen-use/app'
 
-import { Button, Col, Input, InputNumber, Row, Space, Typography } from 'antd'
+import {
+  Button,
+  Card,
+  Col,
+  Input,
+  InputNumber,
+  Row,
+  Space,
+  Typography,
+} from 'antd'
 
 import { useAccountBalanceByMintAddress } from 'shared/hooks/useAccountBalance'
 import { useLucidOracles } from 'hooks/useLucidOracles'
@@ -99,96 +108,125 @@ const Deposit = ({
   }
 
   return (
-    <Row gutter={[16, 16]} style={{ color: '#000000' }}>
-      <Col span={24} style={{ textAlign: 'right' }}>
-        <Typography.Text style={{ color: '#000000' }}>
-          Available: {util.numeric(mintBalance.balance).format('0,0.[000]')}
-        </Typography.Text>
-      </Col>
+    <Row gutter={[24, 24]} style={{ color: '#000000' }}>
       <Col span={24}>
-        <Row justify="space-between">
-          <Col>
-            <Button
-              type="primary"
-              onClick={() => setAmount(mintBalance.balance.toString())}
-            >
-              MAX
-            </Button>
-          </Col>
-          <Col>
-            <InputNumber
-              bordered={false}
-              style={{
-                color: '#000000',
-                textAlign: 'center',
-                fontSize: '20px',
-                fontWeight: 700,
-              }}
-              value={amount}
-              onChange={(e) => onChangeTokenAmount(e || '')}
-            />
-          </Col>
-          <Col>
-            <Input
-              style={{
-                background: '#F4FCEB',
-                color: '#000000',
-                borderRadius: 32,
-                height: 40,
-                width: 135,
-              }}
-              disabled
-              value={mint.toBase58()}
-            />
-          </Col>
-        </Row>
+        <Card
+          bordered={false}
+          style={{
+            background: 'rgb(20 20 20 / 5%)',
+            boxShadow: 'unset',
+          }}
+        >
+          <Row gutter={[16, 16]}>
+            <Col span={24} style={{ textAlign: 'right' }}>
+              <Typography.Text style={{ color: '#000000' }}>
+                Available:{' '}
+                {util.numeric(mintBalance.balance).format('0,0.[000]')}
+              </Typography.Text>
+            </Col>
+            <Col span={24}>
+              <Row justify="space-between" align="middle" wrap={false}>
+                <Col>
+                  <Button
+                    type="primary"
+                    onClick={() => setAmount(mintBalance.balance.toString())}
+                  >
+                    MAX
+                  </Button>
+                </Col>
+                <Col>
+                  <InputNumber
+                    controls={false}
+                    bordered={false}
+                    style={{
+                      color: '#000000',
+                      width: '100%',
+                      textAlign: 'right',
+                      fontSize: '20px',
+                      fontWeight: 700,
+                    }}
+                    value={amount}
+                    onChange={(e) => onChangeTokenAmount(e || '')}
+                  />
+                </Col>
+                <Col>
+                  <Input
+                    style={{
+                      background: '#F4FCEB',
+                      color: '#000000',
+                      borderRadius: 32,
+                      height: 40,
+                      width: 135,
+                    }}
+                    disabled
+                    value={mint.toBase58()}
+                  />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
       </Col>
       {/* Base Token */}
-      <Col span={24} style={{ textAlign: 'right' }}>
-        <Typography.Text style={{ color: '#000000' }}>
-          Available:{' '}
-          {util.numeric(baseBalanceOfAddress.balance).format('0,0.[000]')}
-        </Typography.Text>
-      </Col>
       <Col span={24}>
-        <Row justify="space-between">
-          <Col>
-            <Button
-              type="primary"
-              onClick={() =>
-                setBaseAmount(baseBalanceOfAddress.balance.toString())
-              }
-            >
-              MAX
-            </Button>
-          </Col>
-          <Col>
-            <InputNumber
-              bordered={false}
-              style={{
-                color: '#000000',
-                textAlign: 'center',
-                fontSize: '20px',
-                fontWeight: 700,
-              }}
-              value={baseAmount}
-              onChange={(e) => onChangeBaseAmount(e || '')}
-            />
-          </Col>
-          <Col>
-            <MintSelection
-              style={{
-                background: '#F4FCEB',
-                color: '#000000',
-                borderRadius: 32,
-                height: 40,
-                width: 135,
-              }}
-              disabled
-              value={baseMint.toBase58()}
-            />
-          </Col>
-        </Row>
+        <Card
+          bordered={false}
+          style={{
+            background: 'rgb(20 20 20 / 5%)',
+            boxShadow: 'unset',
+          }}
+        >
+          <Row gutter={[24, 24]}>
+            <Col span={24} style={{ textAlign: 'right' }}>
+              <Typography.Text style={{ color: '#000000' }}>
+                Available:{' '}
+                {util.numeric(baseBalanceOfAddress.balance).format('0,0.[000]')}
+              </Typography.Text>
+            </Col>
+            <Col span={24}>
+              <Row justify="space-between" align="middle" wrap={false}>
+                <Col>
+                  <Button
+                    type="primary"
+                    onClick={() =>
+                      setBaseAmount(baseBalanceOfAddress.balance.toString())
+                    }
+                  >
+                    MAX
+                  </Button>
+                </Col>
+                <Col>
+                  <InputNumber
+                    controls={false}
+                    bordered={false}
+                    style={{
+                      color: '#000000',
+                      width: '100%',
+                      textAlign: 'right',
+                      fontSize: '20px',
+                      fontWeight: 700,
+                    }}
+                    value={baseAmount}
+                    onChange={(e) => onChangeBaseAmount(e || '')}
+                  />
+                </Col>
+                <Col>
+                  <MintSelection
+                    style={{
+                      background: '#F4FCEB',
+                      color: '#000000',
+                      borderRadius: 32,
+                      height: 40,
+                      width: 135,
+                    }}
+                    disabled
+                    value={baseMint.toBase58()}
+                  />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
       </Col>
       {/* Review */}
       <Col span={24}>

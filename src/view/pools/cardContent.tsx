@@ -27,36 +27,40 @@ const CardContent = ({
   strong = true,
   size = 4,
 }: CardContentProps) => {
-  const priColor = primary ? { color: '#ABFC47' } : {}
+  const priColor = primary ? { color: '#45B36B' } : {}
 
   return (
     <Space direction="vertical" size={size}>
-      <Space size={4}>
-        <Typography.Text style={labelStyle} type="secondary">
-          {label}
-        </Typography.Text>
-        {tooltip && (
-          <Tooltip title={tooltip}>
-            <Button
-              type="text"
-              shape="circle"
-              size="small"
-              icon={
-                <Typography.Text type="secondary">
-                  <IonIcon name="information-circle-outline" />
-                </Typography.Text>
-              }
-            />
-          </Tooltip>
-        )}
-      </Space>
+      {label && (
+        <Space size={4}>
+          <Typography.Text style={labelStyle} type="secondary">
+            {label}
+          </Typography.Text>
+          {tooltip && (
+            <Tooltip title={tooltip}>
+              <Button
+                type="text"
+                shape="circle"
+                size="small"
+                icon={
+                  <Typography.Text type="secondary">
+                    <IonIcon name="information-circle-outline" />
+                  </Typography.Text>
+                }
+              />
+            </Tooltip>
+          )}
+        </Space>
+      )}
       <Space size={4}>
         <Typography.Text style={{ ...style, ...priColor }} strong={strong}>
           {value}
         </Typography.Text>
-        <div style={{ marginTop: -3 }}>
-          {mintAddress && <MintAvatar mintAddress={mintAddress} size={18} />}
-        </div>
+        {mintAddress && (
+          <div style={{ marginTop: -3 }}>
+            <MintAvatar mintAddress={mintAddress} size={18} />
+          </div>
+        )}
       </Space>
     </Space>
   )

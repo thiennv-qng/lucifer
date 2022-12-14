@@ -1,6 +1,4 @@
-import { Address, AnchorProvider, web3 } from '@project-serum/anchor'
-import { WalletInterface } from '@senswap/sen-js'
-import { Connection, PublicKey, Transaction } from '@solana/web3.js'
+import { Address, web3 } from '@project-serum/anchor'
 
 /**
  * Validate an address
@@ -16,35 +14,4 @@ export const isAddress = (address?: Address): address is Address => {
   } catch (er) {
     return false
   }
-}
-
-export const getAnchorProvider = (
-  node: string,
-  walletAddress: string,
-  wallet: WalletInterface,
-): AnchorProvider => {
-  const connection = new Connection(node, 'confirmed')
-
-  const signAllTransactions = async (transactions: Transaction[]) => {
-    const signedTransactions = []
-    for (const transaction of transactions) {
-      const signedTransaction = await wallet.signTransaction(transaction)
-      signedTransactions.push(signedTransaction)
-    }
-    return signedTransactions
-  }
-
-  const publicKey = new PublicKey(walletAddress)
-  return new AnchorProvider(
-    connection,
-    {
-      publicKey: new PublicKey(publicKey),
-      signTransaction: wallet.signTransaction,
-      signAllTransactions,
-    },
-    {
-      commitment: 'confirmed',
-      skipPreflight: true,
-    },
-  )
 }

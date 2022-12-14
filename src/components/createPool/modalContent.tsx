@@ -76,13 +76,14 @@ export const ModalContent = () => {
                 Enter Price
               </Typography.Text>
               <InputNumber
+                controls={false}
                 bordered={false}
                 style={{
                   color: '#000000',
-
+                  width: '100%',
+                  textAlign: 'right',
                   fontSize: '20px',
                   fontWeight: 700,
-                  width: 90,
                 }}
                 value={price}
                 onChange={(e) => setPrice(e || '')}
@@ -95,13 +96,14 @@ export const ModalContent = () => {
                 Amount
               </Typography.Text>
               <InputNumber
+                controls={false}
                 bordered={false}
                 style={{
                   color: '#000000',
-
                   fontSize: '20px',
                   fontWeight: 700,
-                  width: 90,
+                  width: '100%',
+                  textAlign: 'right',
                 }}
                 value={amount}
                 onChange={(e) => setAmount(e || '')}

@@ -1,0 +1,26 @@
+.table-pool {
+  .lucifer-table {
+    background: transparent;
+  }
+  thead {
+    tr {
+      th {
+        &[class*='expand-icon-cell'] {
+          display: none;
+        }
+      }
+    }
+  }
+  tbody {
+    background: #fff;
+    tr {
+      cursor: pointer;
+      td {
+        border-width: 3px;
+        &[class*='expand-icon-cell'] {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -53,7 +53,7 @@ const Withdraw = ({ poolAddress }: { poolAddress: string }) => {
           bordered={false}
           style={{
             borderRadius: 4,
-            background: 'rgb(20 20 20 / 10%)',
+            background: 'rgb(20 20 20 / 5%)',
             boxShadow: 'unset',
           }}
         >
@@ -79,6 +79,7 @@ const Withdraw = ({ poolAddress }: { poolAddress: string }) => {
             </Col>
             <Col span={24}>
               <InputNumber
+                controls={false}
                 bordered={false}
                 onChange={(e) => setAmount(e || '')}
                 style={{
@@ -86,6 +87,7 @@ const Withdraw = ({ poolAddress }: { poolAddress: string }) => {
                   fontWeight: 700,
                   textAlign: 'right',
                   color: '#000000',
+                  width: '100%',
                 }}
                 value={amount}
               />

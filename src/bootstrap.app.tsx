@@ -5,6 +5,7 @@ import View from 'view'
 
 import model from 'model'
 import configs from 'configs'
+import 'static/styles/index.less'
 
 const {
   manifest: { appId },
@@ -12,7 +13,7 @@ const {
 
 export const Page = () => {
   return (
-    <AntdProvider appId={appId}>
+    <AntdProvider appId={appId} prefixCls="lucifer">
       <Provider store={model}>
         <View />
       </Provider>
