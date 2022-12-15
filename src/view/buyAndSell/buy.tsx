@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { MintAvatar, notifyError, notifySuccess } from '@sen-use/app'
+import { util } from '@sentre/senhub'
 
 import { Button, Card, Col, InputNumber, Row, Space, Typography } from 'antd'
 import IonIcon from '@sentre/antd-ionicon'
@@ -160,7 +161,7 @@ const Buy = ({ poolAddress }: BuyProps) => {
                     }}
                     ellipsis
                   >
-                    {receive}
+                    {util.numeric(Number(receive) * 2).format('0,0.[000]')}
                   </Typography.Text>
                 </Col>
               </Row>

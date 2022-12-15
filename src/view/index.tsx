@@ -6,6 +6,7 @@ import { Affix, Col, Row } from 'antd'
 import Header from './header'
 import Container from './container'
 import Home from './home'
+import CreatePool from 'components/createPool'
 
 import PoolWatcher from './watcher/pool.watcher'
 
@@ -32,6 +33,7 @@ const View = () => {
         <Switch>
           <Route exact path={root} component={Home} />
           <Route exact path={extend('/pools')} component={Container} />
+          <Route exact path={extend('/new')} component={CreatePool} />
           <Redirect from="*" to={root} />
         </Switch>
       </Col>

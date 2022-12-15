@@ -9,6 +9,7 @@ import {
 } from '@project-serum/anchor'
 import { TOKEN_PROGRAM_ID } from '@project-serum/anchor/dist/cjs/utils/token'
 import { ComputeBudgetProgram, Transaction } from '@solana/web3.js'
+import { BASE_POOLS } from 'contant'
 import { PoolsState } from 'model/pools.controller'
 
 import { DEFAULT_IDL } from './constant'
@@ -52,7 +53,8 @@ class LucidProgram {
     )
     const pools: PoolsState = {}
     for (const account of accounts) {
-      pools[account.publicKey.toBase58()] = account.account
+      if (BASE_POOLS.includes(account.publicKey.toBase58()))
+        pools[account.publicKey.toBase58()] = account.account
     }
     return pools
   }
@@ -344,8 +346,6 @@ class LucidProgram {
       mint,
       baseMint,
     )
-    console.log(tokenAccounts, ' tokenAccounts')
-    await this.mintStable(pool, stable_amount)
     const txId = await this.program.methods
       .buy(stable_amount, base_amount)
       .accounts({

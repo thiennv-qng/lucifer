@@ -15,6 +15,7 @@ const Header = () => {
       <Row gutter={[24, 24]}>
         <Col span={6}>
           <Menu
+            defaultActiveFirst
             onSelect={(e) => history.push(e.key)}
             style={{ minWidth: 250 }}
             mode="horizontal"
@@ -32,7 +33,15 @@ const Header = () => {
             ]}
           />
         </Col>
-        <Col flex="auto" style={{ textAlign: 'center' }}>
+        <Col
+          flex="auto"
+          style={{
+            textAlign: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <Image src={logo} preview={false} />
         </Col>
         <Col span={6}>
