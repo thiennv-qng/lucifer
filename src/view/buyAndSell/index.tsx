@@ -20,6 +20,7 @@ const BuyAndSell = ({ poolAddress }: { poolAddress: string }) => {
         onCancel={() => setVisible(false)}
         footer={null}
         className="sentre-modal-gradient"
+        destroyOnClose
       >
         <Row gutter={[24, 24]}>
           <Col span={24} style={{ textAlign: 'center' }}>
@@ -31,7 +32,10 @@ const BuyAndSell = ({ poolAddress }: { poolAddress: string }) => {
           </Col>
           <Col span={24}>
             {value === 'Buy' ? (
-              <Buy poolAddress={poolAddress} />
+              <Buy
+                poolAddress={poolAddress}
+                onClose={() => setVisible(false)}
+              />
             ) : (
               <Sell poolAddress={poolAddress} />
             )}

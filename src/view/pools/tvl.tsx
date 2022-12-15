@@ -3,8 +3,8 @@ import { usePoolTvl } from 'hooks/pool/usePoolTvl'
 
 import CardContent from './cardContent'
 
-type ApyProps = { poolAddress: string; mint: string }
-const TVL = ({ poolAddress, mint }: ApyProps) => {
+type ApyProps = { poolAddress: string }
+const TVL = ({ poolAddress }: ApyProps) => {
   const tvl = usePoolTvl(poolAddress)
 
   return (
@@ -12,7 +12,6 @@ const TVL = ({ poolAddress, mint }: ApyProps) => {
       primary
       value={util.numeric(tvl).format('0,0.00[00]a')}
       strong={false}
-      mintAddress={mint}
     />
   )
 }

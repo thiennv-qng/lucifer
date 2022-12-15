@@ -21,6 +21,7 @@ const BorrowAnhRepay = ({ poolAddress }: { poolAddress: string }) => {
         onCancel={() => setVisible(false)}
         footer={null}
         className="sentre-modal-gradient"
+        destroyOnClose
       >
         <Row gutter={[24, 24]}>
           <Col span={24} style={{ textAlign: 'center' }}>

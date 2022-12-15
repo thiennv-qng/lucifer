@@ -18,13 +18,14 @@ import configs from 'configs'
 
 type BuyProps = {
   poolAddress: string
+  onClose: () => void
 }
 
 const {
   sol: { baseMint },
 } = configs
 
-const Buy = ({ poolAddress }: BuyProps) => {
+const Buy = ({ poolAddress, onClose }: BuyProps) => {
   const [amount, setAmount] = useState('0')
   const [receive, setReceive] = useState('0')
   const [loading, setLoading] = useState(false)
@@ -44,6 +45,7 @@ const Buy = ({ poolAddress }: BuyProps) => {
       console.log(amount, 'so luong amount')
       const amountBN = await decimalizeMintAmount(amount, baseMint)
       const { txId } = await lucid.buy(poolAddress, amountBN, amountBN)
+      onClose()
       return notifySuccess('Deposited', txId)
     } catch (error) {
       notifyError(error)
