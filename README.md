@@ -1,8 +1,6 @@
 # Create UI by Senhub:
 
-### Senhub document:
-
-[https://docs.sentre.io/](https://docs.sentre.io/)
+[Senhub document](https://docs.sentre.io/)
 
 # Smartcontract:
 
