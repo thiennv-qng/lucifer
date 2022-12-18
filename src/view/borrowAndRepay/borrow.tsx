@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { util } from '@sentre/senhub'
-import { notifyError, notifySuccess } from '@sen-use/app'
+import {
+  MintAvatar,
+  MintSymbol,
+  notifyError,
+  notifySuccess,
+} from '@sen-use/app'
 
 import { Button, Card, Col, InputNumber, Row, Space, Typography } from 'antd'
 
@@ -13,7 +18,7 @@ import { useOracles } from 'hooks/useOracles'
 const Borrow = ({ poolAddress }: { poolAddress: string }) => {
   const [amount, setAmount] = useState('0')
   const [loading, setLoading] = useState(false)
-  const { lptMint } = usePoolData(poolAddress)
+  const { lptMint, mint } = usePoolData(poolAddress)
   const poolPrices = usePoolPrices(poolAddress)
   const { balance } = useAccountBalanceByMintAddress(lptMint.toBase58())
   const lucid = useLucid()
@@ -53,34 +58,42 @@ const Borrow = ({ poolAddress }: { poolAddress: string }) => {
           bordered={false}
           style={{ boxShadow: 'unset', background: 'rgb(20 20 20 / 5%)' }}
         >
-          <Row align="middle">
+          <Row align="middle" wrap={false}>
             <Col flex="auto">
-              <Button
-                type="primary"
-                onClick={() => setAmount(balance.toString())}
-              >
+              <Button onClick={() => setAmount(balance.toString())} ghost>
                 Max
               </Button>
             </Col>
             <Col>
-              <Space>
-                <InputNumber
-                  controls={false}
-                  bordered={false}
-                  onChange={(e) => setAmount(e || '')}
-                  style={{
-                    color: '#000000',
-                    fontSize: 30,
-                    fontWeight: 700,
-                    width: '100%',
-                    textAlign: 'right',
-                  }}
-                  value={amount}
-                />
-                <Typography.Title level={4} style={{ color: '#000000' }}>
-                  LPT
-                </Typography.Title>
-              </Space>
+              <Row wrap={false} align="middle">
+                <Col flex="auto">
+                  <InputNumber
+                    controls={false}
+                    bordered={false}
+                    onChange={(e) => setAmount(e || '')}
+                    style={{
+                      color: '#000000',
+                      fontSize: 30,
+                      fontWeight: 700,
+                      width: '100%',
+                      textAlign: 'right',
+                    }}
+                    value={amount}
+                  />
+                </Col>
+                <Col>
+                  <Card
+                    style={{ boxShadow: 'unset', borderRadius: 8 }}
+                    bordered={false}
+                    bodyStyle={{ padding: 4 }}
+                  >
+                    <Space>
+                      <MintAvatar mintAddress={mint} size={24} />
+                      <MintSymbol mintAddress={mint} />
+                    </Space>
+                  </Card>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Card>
