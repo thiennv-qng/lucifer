@@ -6,4 +6,4 @@
 
 # Smartcontract:
 
-Click [https://github.com/thiennv-qng/lucifer-core](here) to view details.
+Click [here](https://github.com/thiennv-qng/lucifer-core) to view details.
